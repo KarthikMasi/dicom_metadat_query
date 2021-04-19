@@ -20,6 +20,8 @@ if __name__ == '__main__':
     ds = pydicom.dcmread(args.dicom_path).to_json()
     repetion_time = ds["52009229"]['Value'][0]['00189112']['Value'][0]['00180080']['Value'][0]
     manufacturer = ds["00080070"]['Value'][0]
-
+    model = ds["00081090"]['Value'][0]
+    mag_field_strength = ds["00180087"]['Value'][0]
+    echo_time = ds["52009230"]['Value'][0]['2005140F']['Value'][0]['00180081']['Value'][0]
 
 
