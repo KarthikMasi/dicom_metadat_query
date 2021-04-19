@@ -14,15 +14,12 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-def get_repetition_time(ds):
-    """
-
-    """
-    return ds["52009229"]['Value'][0]['00189112']['Value'][0]['00180080']['Value'][0]
 
 if __name__ == '__main__':
     args = parse_args()
     ds = pydicom.dcmread(args.dicom_path).to_json()
-    repetion_time = get_repetition_time(ds)
+    repetion_time = ds["52009229"]['Value'][0]['00189112']['Value'][0]['00180080']['Value'][0]
+    manufacturer = ds["00080070"]['Value'][0]
+
 
 
